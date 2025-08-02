@@ -2,6 +2,33 @@
 
 # Adreno™ GPU OpenGL ES Code Sample Framework
 
+## Env:
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>gradle -v
+Gradle 7.4
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>javac -version
+javac 17.0.16   // OpenJDK17U-jdk_x64_windows_hotspot_17.0.16_8
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>cmake --version
+cmake version 3.28.0
+android sdk: 11.0
+Android Gradle Plugin: 7.2
+
+
+## to build the project
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>03_BuildTools.bat
+cmake -A x64 --fresh . -B build
+cmake --build build
+
+## special notes, Tips to work with old android project
+* The project comes with gradlew.  Run “gradlew -version” to find out the original gradle version the author used.  Make sure the windows OS installed the same version
+* Check gradle/openjdk compatibility matrix. Don’t just install latest jdk and expect it to work.  https://docs.gradle.org/current/userguide/compatibility.html
+* Install right Android SDK version in app\build.gradle
+* Add system env variables:
+    ANDROID_HOME
+    JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot
+* Run “Visual Studio Installer” for updates, especially the windows sdk version should be up to date.
+* Run cmake with -A x64?  CMAKE_VS_PLATFORM_NAME
+* On Windows command promp, use “Developer command prompt for VS17” or something similar
+
 ## Overview
 
 This repository contains an OpenGL ES Framework for game and graphics developers to get up and running quickly for creating sample content and rapid prototyping. It is designed to be easy to build and have the basic building blocks needed for creating an Android APK with OpenGL ES functionality including an input system, as well as other helper utilities for loading resources, etc. This Framework has been extracted from and is a subset of the [Adreno GPU SDK](https://developer.qualcomm.com/software/adreno-gpu-sdk/tools).
@@ -14,7 +41,7 @@ For an overview of the key features and functionality of this Framework please v
 
 The framework uses submodules for both external code dependencies and to get the shared assets for the sample projects (GameSampleAssets).
 
-`git clone --recursive https://github.com/quic/adreno-gpu-opengl-es-code-sample-framework`
+`git clone --recursive https://github.com/quic/adreno-gpu-opengl-es-code-sample-framework-ST`
 
 ...will clone the framework and its submodules.
 

@@ -4,7 +4,10 @@
 @popd
 @mkdir solution
 @pushd solution
-cmake.exe -G "Visual Studio 16 2019" ..
+
+REM use VS17
+cmake.exe -A x64 --fresh -G "Visual Studio 15 2017" ..
 cmake.exe --build . --config Debug
-cmake.exe --build . --config Release
+
+REM remove release cmake.exe --build . --config Release
 @popd

@@ -12,6 +12,12 @@ android {
         setProperty("archivesBaseName", "hello_fw")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // remove x86 configuration since KTX-software does not support it
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }        
+
     }
 
     buildTypes {
