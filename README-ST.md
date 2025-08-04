@@ -3,22 +3,29 @@
 # Adreno™ GPU OpenGL ES Code Sample Framework
 
 ## Env:
-C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>gradle -v
-Gradle 7.4
-C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>javac -version
-javac 17.0.16   // OpenJDK17U-jdk_x64_windows_hotspot_17.0.16_8
-C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>cmake --version
-cmake version 3.28.0
-android sdk: 11.0
 Android Gradle Plugin: 7.2
+Gradle 7.4      // C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>gradle -v
+javac 17.0.16   // OpenJDK17U-jdk_x64_windows_hotspot_17.0.16_8 // C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>javac -version
+cmake version 3.28.0    // C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>cmake --version
+android sdk: 11.0
 
+## to build hello_fw
+### On Android
+    * do NOT upgrade gradle if incompatiblity is report. Instead. change "Settings | Build, Execution, Deployment | Build Tools | Gradle: Gradle SDK" to Jetbrains Java runtime to 17.0.14 or similar
+    * Open build/android directory in android studio.  No need to "import project". 
 
-## to build the project
+### On Windows
 C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST>03_BuildTools.bat
 cmake -A x64 --fresh . -B build
 cmake --build build
+if debug symbols do not work, add directories or similar to "Run | Edit configuration | Debugger | symbol paths" 
 
-## special notes, Tips to work with old android project
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST\samples\hello_fw\build\android\app\build\intermediates\stripped_native_libs\debug\out\lib\arm64-v8a
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST\samples\hello_fw\build\android\app\build\intermediates\merged_native_libs\debug\out\lib\arm64-v8a
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST\samples\hello_fw\build\android\app\build\intermediates\cmake\debug\obj\arm64-v8a
+C:\Users\Shaobin\adreno-gpu-opengl-es-code-sample-framework-ST\samples\hello_fw\build\android\app\build\intermediates\cxx\Debug\a5ug1uw5\obj\arm64-v8a
+
+## special notes on Windows OS, Tips to work with old android project
 * The project comes with gradlew.  Run “gradlew -version” to find out the original gradle version the author used.  Make sure the windows OS installed the same version
 * Check gradle/openjdk compatibility matrix. Don’t just install latest jdk and expect it to work.  https://docs.gradle.org/current/userguide/compatibility.html
 * Install right Android SDK version in app\build.gradle

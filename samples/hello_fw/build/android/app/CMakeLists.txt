@@ -11,7 +11,7 @@ find_library(log-lib
         log)
 
 # now build app's shared lib
-set(CMAKE_CXX_FLAGS_DEBUG "-DADRENO_DEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-DADRENO_DEBUG -O0")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 

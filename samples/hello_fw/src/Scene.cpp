@@ -9,6 +9,8 @@
 #include <FrmApplication.h>
 #include <OpenGLES/FrmShader.h>
 #include "Scene.h"
+#include <android/log.h>
+
 
 #if defined(__linux__)
 #include <stdio.h>
@@ -31,6 +33,8 @@ CFrmApplication* FrmCreateApplicationInstance()
 //--------------------------------------------------------------------------------------
 CSample::CSample( const CHAR* strName ) : CFrmApplication( strName )
 {
+    __android_log_write(ANDROID_LOG_FATAL, "shaobin9", "in while loop");
+
     g_strWindowTitle = strName;
     g_nWindowWidth   = 765;
     g_nWindowHeight  = 480;

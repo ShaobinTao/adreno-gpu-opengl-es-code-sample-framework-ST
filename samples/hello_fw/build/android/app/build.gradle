@@ -18,6 +18,12 @@ android {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }        
 
+        externalNativeBuild {
+            cmake {
+                // Pass optional arguments to CMake.
+                arguments "-DCMAKE_BUILD_TYPE=Debug"
+            }
+        }
     }
 
     buildTypes {
@@ -25,7 +31,15 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
         }
+        debug {
+            // Ensure debuggable is true (default for the debug buildType)
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+            zipAlignEnabled false            
+        }        
     }
+
     externalNativeBuild {
         cmake {
             path file('CMakeLists.txt')
